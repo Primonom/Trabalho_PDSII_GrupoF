@@ -11,4 +11,7 @@ public:
     void exibir();
 };
 
+Personagem criarPersonagem(std::string nome, std::string classe);
+
 #endif
+
