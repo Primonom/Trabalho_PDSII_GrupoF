@@ -25,5 +25,39 @@ int main() {
         personagem.exibir();
     }
 
+    // Inventario
+        inventario inventario;
+        std::cout << "\nBem-vindo(a) a loja!" << std::endl;
+        std::cout << "Escolha os itens que deseja comprar:" << std::endl;
+        std::cout << "1. Espada" << std::endl;
+        std::cout << "2. Poção de vida" << std::endl;
+        std::cout << "3. Armadura" << std::endl;
+        std::cout << "4. Poção de mana" << std::endl;
+
+        int escolha;
+        std::cin >> escolha;
+
+        switch (escolha) {
+            case 1:
+                inventario.adicionarItem("Espada", 1);
+                break;
+            case 2:
+                inventario.adicionarItem("Poção de vida", 1);
+                break;
+            case 3:
+                inventario.adicionarItem("Armadura", 1);
+                break;
+            case 4:
+                inventario.adicionarItem("Poção de mana", 1);
+                break;
+            default:
+                std::cout << "Opção inválida!" << std::endl;
+                break;
+        }
+
+        std::cout << "\nItens comprados:" << std::endl;
+        inventario.mostrarItens();
+    }
+
     return 0;
 }
