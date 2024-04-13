@@ -17,7 +17,7 @@ NOME a decidir:**************
     -Escolha de campanha
         Caverna do Dragao:
         Monte ararath:
-        Eclepse:
+        Eclipse:
         Em busca de atlantida:
         Perdidos no Espaço:
     -Golpes

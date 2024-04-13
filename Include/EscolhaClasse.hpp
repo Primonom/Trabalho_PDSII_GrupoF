@@ -1,5 +1,5 @@
-#ifndef EscolhaClasse_HPP
-#define ESCOLHACLASSE_HPP
+#ifndef _HPP
+#define ESCOLHACLASSEEscolhaClasse_HPP
 
 #include <string>
 
