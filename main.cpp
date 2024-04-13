@@ -25,7 +25,7 @@ int main() {
         personagem.exibir();
     }
 
-    // Inventario
+    // inventario
         inventario inventario;
         std::cout << "\nBem-vindo(a) a loja!" << std::endl;
         std::cout << "Escolha os itens que deseja comprar:" << std::endl;
@@ -58,6 +58,25 @@ int main() {
         std::cout << "\nItens comprados:" << std::endl;
         inventario.mostrarItens();
     }
+    Ataque ataque;
+        std::cout << "\nEscolha um ataque para usar:" << std::endl;
+        if (classePersonagem == "Mago") {
+            ataque.adicionarAtaque("Bola de fogo");
+            ataque.adicionarAtaque("Raio");
+        } else if (classePersonagem == "Guerreiro") {
+            ataque.adicionarAtaque("Corte horizontal");
+            ataque.adicionarAtaque("Investida");
+        } else if (classePersonagem == "Assassino") {
+            ataque.adicionarAtaque("Ataque sorrateiro");
+            ataque.adicionarAtaque("Arremesso de adaga");
+        } else if (classePersonagem == "Monge") {
+            ataque.adicionarAtaque("Chute giratório");
+            ataque.adicionarAtaque("Soco rápido");
+        }
+
+        ataque.mostrarOpcoes();
+    }
+
 
     return 0;
 }
