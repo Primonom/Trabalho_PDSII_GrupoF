@@ -1,5 +1,5 @@
-#ifndef IINVENTARIO_HPP
-#define NVENTARIO_HPP
+#ifndef INVENTARIO_HPP
+#define INVENTARIO_HPP
 #include <string>
 #include <vector>
 

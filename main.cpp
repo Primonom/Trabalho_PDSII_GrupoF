@@ -2,11 +2,16 @@
 #include "Campanha.hpp"
 #include "EscolhaClasse.hpp"
 #include "Personagem.hpp"
-
+#include "Inventario.hpp"
+#include "ataques.hpp"
 int main() {
     // Solicitar ao usuário que escolha a campanha
     Campanha campanha;
     std::string nomeCampanha = campanha.escolherCampanha();
+    std::string classePersonagem = escolherClasse();
+
+
+
 
     if (!nomeCampanha.empty()) {
         std::cout << "Campanha selecionada: " << nomeCampanha << std::endl;
@@ -26,7 +31,7 @@ int main() {
     }
 
     // inventario
-        inventario inventario;
+        Inventario inventario;
         std::cout << "\nBem-vindo(a) a loja!" << std::endl;
         std::cout << "Escolha os itens que deseja comprar:" << std::endl;
         std::cout << "1. Espada" << std::endl;
@@ -57,8 +62,9 @@ int main() {
 
         std::cout << "\nItens comprados:" << std::endl;
         inventario.mostrarItens();
-    }
-    Ataque ataque;
+    
+
+    Ataques ataque;
         std::cout << "\nEscolha um ataque para usar:" << std::endl;
         if (classePersonagem == "Mago") {
             ataque.adicionarAtaque("Bola de fogo");
@@ -75,7 +81,7 @@ int main() {
         }
 
         ataque.mostrarOpcoes();
-    }
+    
 
 
     return 0;
