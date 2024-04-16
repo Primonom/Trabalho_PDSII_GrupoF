@@ -1,5 +1,9 @@
-NOME a decidir:**************
-# Campanha total 
+<h1 align="center"> NOME a decidir:**************</h1>
+Trabalho final da disciplina Programação e Desenvolvimento de Software 2 - UFMG
+
+:construction: Projeto em construção :construction:
+
+## Campanha total 
     introduçao:
     -Escolha de classe do perssonagem
         classe magica:
@@ -31,6 +35,11 @@ NOME a decidir:**************
         -
         -
         -
-  
+        
+    ##Grupo:
+    -Gabriel Mora @gabrielmoorab
+    -Luís Otávio
+    -Pablo Reis Rebonato @Primonom
+    -Brenda Belizário de Oliveira @brrbelizario
 
     
