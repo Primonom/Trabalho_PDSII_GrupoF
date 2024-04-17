@@ -88,7 +88,7 @@ Trabalho final da disciplina Programação e Desenvolvimento de Software 2 - UFM
         -Bonito
         -Vendível
         
-##Grupo:
+## Grupo:
     -Gabriel Mora @gabrielmoorab
     -Luís Otávio
     -Pablo Reis Rebonato @Primonom
