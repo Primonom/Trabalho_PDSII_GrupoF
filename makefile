@@ -25,5 +25,4 @@ ${BUILD}/inventario.o: ${INCLUDE}/inventario.hpp ${SRC}/inventario.cpp
 	${CC} ${CFLAGS} -I ${INCLUDE}/ -c ${SRC}/inventario.cpp -o ${BUILD}/inventario.o
 
 ${BUILD}/main.o: ${INCLUDE}/personagem.hpp ${INCLUDE}/ataques.hpp ${INCLUDE}/Campanha.hpp ${INCLUDE}/EscolhaClasse.hpp ${INCLUDE}/inventario.hpp main.cpp
-	${CC} ${CFLAGS} -I ${INCLUDE}/ -c main.cpp -o ${BUILD}/main.o
-
+	${CC} ${CFLAGS} -I ${INCLUDE}/ -c main.cpp -o${BUILD}/main.o
