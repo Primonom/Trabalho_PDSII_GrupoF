@@ -93,6 +93,7 @@ Trabalho final da disciplina Programação e Desenvolvimento de Software 2 - UFM
     -Luís Otávio
     -Pablo Reis Rebonato @Primonom
     -Brenda Belizário de Oliveira @brrbelizario
+    -Artur Queiroz de Souza
         
 
     
