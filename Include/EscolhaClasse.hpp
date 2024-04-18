@@ -1,4 +1,4 @@
-#ifndef _HPP
+#ifndef ESCOLHACLASSE_HPP
 #define ESCOLHACLASSE_HPP
 
 #include <string>

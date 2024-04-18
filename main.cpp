@@ -62,7 +62,6 @@ int main() {
 
         std::cout << "\nItens comprados:" << std::endl;
         inventario.mostrarItens();
-    
 
     Ataques ataque;
         std::cout << "\nEscolha um ataque para usar:" << std::endl;
