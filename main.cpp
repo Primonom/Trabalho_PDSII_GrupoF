@@ -27,6 +27,8 @@ int main() {
         std::cout << "\nPersonagem criado com sucesso!\n";
         personagem.exibir();
     }
+    system ("pause");
+    system ("cls");
 
     // Criar um objeto da classe Economia
     Economia economia;
@@ -82,6 +84,8 @@ while (continuarComprando) {
 
     std::cout << "\nItens comprados:" << std::endl;
     inventario.mostrarItens();
+    system ("pause");
+    system ("cls");
 }
 
 int x;
