@@ -4,14 +4,12 @@
 #include "Personagem.hpp"
 #include "Inventario.hpp"
 #include "ataques.hpp"
+#include "economia.hpp"
 int main() {
-    // Solicitar ao usuário que escolha a campanha
+   // Solicitar ao usuário que escolha a campanha
     Campanha campanha;
     std::string nomeCampanha = campanha.escolherCampanha();
-    std::string classePersonagem = escolherClasse();
-
-
-
+     std::string classePersonagem = escolherClasse();
 
     if (!nomeCampanha.empty()) {
         std::cout << "Campanha selecionada: " << nomeCampanha << std::endl;
@@ -30,39 +28,65 @@ int main() {
         personagem.exibir();
     }
 
-    // inventario
-        Inventario inventario;
-        std::cout << "\nBem-vindo(a) a loja!" << std::endl;
-        std::cout << "Escolha os itens que deseja comprar:" << std::endl;
-        std::cout << "1. Espada" << std::endl;
-        std::cout << "2. Poção de vida" << std::endl;
-        std::cout << "3. Armadura" << std::endl;
-        std::cout << "4. Poção de mana" << std::endl;
+    // Criar um objeto da classe Economia
+    Economia economia;
 
-        int escolha;
-        std::cin >> escolha;
+    // Exemplo de uso da economia
+    economia.ganharOuro(100); // O jogador começa com 100 de ouro
+    std::cout << "O jogador tem " << economia.getOuro() << " de ouro." << std::endl;
 
-        switch (escolha) {
-            case 1:
-                inventario.adicionarItem("Espada", 1);
-                break;
-            case 2:
-                inventario.adicionarItem("Poção de vida", 1);
-                break;
-            case 3:
-                inventario.adicionarItem("Armadura", 1);
-                break;
-            case 4:
-                inventario.adicionarItem("Poção de mana", 1);
-                break;
-            default:
-                std::cout << "Opção inválida!" << std::endl;
-                break;
-        }
+   bool continuarComprando = true; // Variável para controlar se o jogador deseja continuar comprando
 
-        std::cout << "\nItens comprados:" << std::endl;
-        inventario.mostrarItens();
+while (continuarComprando) {
+    // Cria um inventário para o jogador
+    Inventario inventario(economia);
 
+    std::cout << "\nBem-vindo(a) à loja!" << std::endl;
+    std::cout << "Escolha os itens que deseja comprar:" << std::endl;
+    std::cout << "1. Espada (10 de ouro)" << std::endl;
+    std::cout << "2. Poção de vida (5 de ouro)" << std::endl;
+    std::cout << "3. Armadura (15 de ouro)" << std::endl;
+    std::cout << "4. Poção de mana (8 de ouro)" << std::endl;
+    std::cout << "0. Sair da loja" << std::endl; // Opção para sair da loja
+
+    int escolha;
+    std::cin >> escolha;
+
+    switch (escolha) {
+        case 1:
+            inventario.adicionarItem("Espada", 1, 10);
+            break;
+        case 2:
+            inventario.adicionarItem("Poção de vida", 1, 5);
+            break;
+        case 3:
+            inventario.adicionarItem("Armadura", 1, 15);
+            break;
+        case 4:
+            inventario.adicionarItem("Poção de mana", 1, 8);
+            break;
+        case 0:
+            // Opção para sair da loja
+            continuarComprando = false;
+            break;
+        default:
+            std::cout << "Opção inválida!" << std::endl;
+            break;
+    }
+
+    // Verifica se o jogador escolheu sair da loja
+    if (!continuarComprando) {
+        std::cout << "Saindo da loja..." << std::endl;
+        break; // Sai do loop
+    }
+
+    std::cout << "\nItens comprados:" << std::endl;
+    inventario.mostrarItens();
+}
+
+int x;
+for(x=0; x<=4; x++){
+    
     Ataques ataque;
         std::cout << "\nEscolha um ataque para usar:" << std::endl;
         if (classePersonagem == "Mago") {
@@ -80,8 +104,7 @@ int main() {
         }
 
         ataque.mostrarOpcoes();
-    
-
+}
 
 return 0;
 }
