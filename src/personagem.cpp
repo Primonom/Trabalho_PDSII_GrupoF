@@ -39,3 +39,21 @@ Personagem criarPersonagem(std::string nome, std::string classe) {
     novoPersonagem.classe = classe;
     return novoPersonagem;
 }
+
+void Personagem::addXP(int amount) {
+    xp += amount;
+
+    while (xp >= xpToLevelUp) {
+        xp -= xpToLevelUp;
+        level++;
+        xpToLevelUp *= 2;
+    }
+}
+
+int Personagem::getLevel() const {
+    return level;
+}
+
+int Personagem::getXP() const {
+    return xp;
+}

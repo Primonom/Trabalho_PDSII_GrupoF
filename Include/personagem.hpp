@@ -13,9 +13,15 @@ public:
     int magia;
     int ataque;
     int agilidade;
+    int xp = 0;
+    int level = 1;
+    int xpToLevelUp = 100;
 
     void exibir();
     void distribuirPontos(int pontos);
+    void addXP(int amount);
+    int getLevel() const;
+    int getXP() const;
 };
 
 Personagem criarPersonagem(std::string nome, std::string classe);
