@@ -19,6 +19,7 @@ int main() {
     // Solicitar ao usuário que escolha a campanha
     Campanha campanha;
     std::string nomeCampanha = campanha.escolherCampanha();
+    std::string classePersonagem = escolherClasse();
 
     if (!nomeCampanha.empty()) {
         std::cout << "Campanha selecionada: " << nomeCampanha << std::endl;
