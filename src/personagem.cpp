@@ -57,3 +57,22 @@ int Personagem::getLevel() const {
 int Personagem::getXP() const {
     return xp;
 }
+
+/*  IMPLEMENTAÇÃO DO CÓDIGO PRINCIPAL
+
+// Create a new character
+Personagem myCharacter = criarPersonagem("John", "Warrior");
+
+// The character gains 150 XP
+myCharacter.addXP(150);
+
+// Print the character's current level and XP
+std::cout << "Level: " << myCharacter.getLevel() << ", XP: " << myCharacter.getXP() << std::endl;
+
+// The character gains 200 XP
+myCharacter.addXP(200);
+
+// Print the character's current level and XP
+std::cout << "Level: " << myCharacter.getLevel() << ", XP: " << myCharacter.getXP() << std::endl;
+
+*/
