@@ -11,23 +11,26 @@ void Campanha::exibirOpcoes() {
 
 std::string Campanha::escolherCampanha() {
     int escolha;
-    exibirOpcoes();
-    std::cin >> escolha;
+    do {
+        exibirOpcoes();
+        std::cin >> escolha;
 
-    switch (escolha) {
-        case 1:
-            return "Caverna do Dragao";
-        case 2:
-            return "Monte Ararath";
-        case 3:
-            return "Eclipse";
-        case 4:
-            return "Em busca de Atlantida";
-        case 5:
-            return "Perdidos no Espaco";
-        default:
-            std::cerr << "Opcao invalida!" << std::endl;
-            return "";
-    }
+        switch (escolha) {
+            case 1:
+                return "Caverna do Dragao";
+            case 2:
+                return "Monte Ararath";
+            case 3:
+                return "Eclipse";
+            case 4:
+                return "Em busca de Atlantida";
+            case 5:
+                return "Perdidos no Espaco";
+            default:
+                std::cerr << "Opcao invalida!" << std::endl;
+        }
+    } while (escolha < 1 || escolha > 5);
+
+    return "";
 }
 
