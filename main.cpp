@@ -33,7 +33,7 @@ void atribuirAtributos(Personagem& personagem) {
 }
 
 int main() {
-    // Solicitar ao usuário que escolha a campanha
+    // Solicitar ao usuário que escolha a campanha e a classe do personagem
     Campanha campanha;
     std::string nomeCampanha = campanha.escolherCampanha();
     std::string classePersonagem = escolherClasse();
@@ -45,9 +45,6 @@ int main() {
         std::string nomePersonagem;
         std::cout << "Digite o nome do seu personagem: ";
         std::cin >> nomePersonagem;
-
-        // Solicitar ao usuário que escolha a classe do personagem
-        std::string classePersonagem = escolherClasse();
 
         // Criar um novo personagem com o nome e classe escolhidos e exibir informações
         Personagem personagem = criarPersonagem(nomePersonagem, classePersonagem);

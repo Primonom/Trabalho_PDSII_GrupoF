@@ -11,9 +11,18 @@ void Campanha::exibirOpcoes() {
 
 std::string Campanha::escolherCampanha() {
     int escolha;
+    std::string input;
+
     do {
         exibirOpcoes();
-        std::cin >> escolha;
+        std::cin >> input;
+
+        try {
+            escolha = std::stoi(input);
+        } catch (const std::exception& e) {
+            std::cerr << "Entrada invalida! Digite um numero." << std::endl;
+            continue;
+        }
 
         switch (escolha) {
             case 1:
