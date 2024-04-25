@@ -17,20 +17,32 @@ void Personagem::distribuirPontos(int pontos) {
     std::cout << "Distribuindo " << pontos << " pontos para os atributos." << std::endl;
     std::cout << "Digite quantos pontos deseja atribuir a cada atributo:" << std::endl;
 
-    std::cout << "Saúde: ";
+    std::cout << "Saude: ";
     std::cin >> saude;
+    saude = std::min(saude, pontos);
+    pontos -= saude;
 
     std::cout << "Defesa: ";
     std::cin >> defesa;
+    defesa = std::min(defesa, pontos);
+    pontos -= defesa;
 
     std::cout << "Magia: ";
     std::cin >> magia;
+    magia = std::min(magia, pontos);
+    pontos -= magia;
 
     std::cout << "Ataque: ";
     std::cin >> ataque;
+    ataque = std::min(ataque, pontos);
+    pontos -= ataque;
 
     std::cout << "Agilidade: ";
     std::cin >> agilidade;
+    agilidade = std::min(agilidade, pontos);
+    pontos -= agilidade;
+
+    std::cout << "Pontos restantes: " << pontos << std::endl;
 }
 
 Personagem criarPersonagem(std::string nome, std::string classe) {

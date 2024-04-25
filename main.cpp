@@ -7,11 +7,28 @@
 #include "Economia.hpp"
 #include "Sorte.hpp"
 
+#include <random>
+
 void atribuirAtributos(Personagem& personagem) {
     int pontos;
-    std::cout << "Digite a quantidade de pontos para distribuir aos atributos do personagem: ";
-    std::cin >> pontos;
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(1, 6);
+    int dado = dis(gen); // Simula a rolagem de um dado de 6 lados
 
+    if (dado == 6) {
+        pontos = 10;
+    } else if (dado == 1) {
+        pontos = 5;
+    } else if (dado == 2) {
+        pontos = 6;
+    } else if (dado == 3) {
+        pontos = 7;
+    } else if (dado == 4) {
+        pontos = 8;
+    } else if (dado == 5) {
+        pontos = 9;
+    }
     personagem.distribuirPontos(pontos);
 }
 
