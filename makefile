@@ -27,5 +27,8 @@ ${BUILD}/Economia.o: ${INCLUDE}/Economia.hpp ${SRC}/Economia.cpp
 ${BUILD}/personagem.o: ${INCLUDE}/personagem.hpp ${SRC}/personagem.cpp
 	${CC} ${CFLAGS} -I ${INCLUDE}/ -c ${SRC}/personagem.cpp -o ${BUILD}/personagem.o
 
-${BUILD}/main.o:  ${INCLUDE}/ataques.hpp ${INCLUDE}/Campanha.hpp ${INCLUDE}/EscolhaClasse.hpp ${INCLUDE}/inventario.hpp ${INCLUDE}/Economia.hpp ${INCLUDE}/personagem.hpp main.cpp
+${BUILD}/Sorte.o: ${INCLUDE}/Sorte.hpp ${SRC}/Sorte.cpp
+	${CC} ${CFLAGS} -I ${INCLUDE}/ -c ${SRC}/Sorte.cpp -o ${BUILD}/Sorte.o
+
+${BUILD}/main.o: ${INCLUDE}/Sorte.hpp ${INCLUDE}/ataques.hpp ${INCLUDE}/Campanha.hpp ${INCLUDE}/EscolhaClasse.hpp ${INCLUDE}/inventario.hpp ${INCLUDE}/Economia.hpp ${INCLUDE}/personagem.hpp main.cpp
 	${CC} ${CFLAGS} -I ${INCLUDE}/ -c main.cpp -o${BUILD}/main.o

@@ -5,8 +5,8 @@
 #include "Inventario.hpp"
 #include "Ataques.hpp"
 #include "Economia.hpp"
+#include "Sorte.hpp"
 
-// Função para atribuir pontos aos atributos do personagem
 void atribuirAtributos(Personagem& personagem) {
     int pontos;
     std::cout << "Digite a quantidade de pontos para distribuir aos atributos do personagem: ";
