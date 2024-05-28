@@ -9,7 +9,7 @@ private:
     std::vector<std::string> ataques;
 
 public:
-    void adicionarAtaque(const std::string& ataques);
+    void adicionarAtaque(const std::string& ataque);
     void mostrarOpcoes() const;
 };
 
