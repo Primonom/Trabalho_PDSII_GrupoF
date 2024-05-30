@@ -1,16 +1,28 @@
 #ifndef MONSTRO_HPP
 #define MONSTRO_HPP
 
-#include "Entidade.hpp"
+#include <string>
+#include "personagem.hpp"
 
-class Monstro : public Entidade {
+class Monstro : public Personagem {
+private:
+    int forca;
+
 public:
-    Monstro(const std::string& nome, int saude, int forca, int defesa);
-    virtual ~Monstro();
+    // Construtor
+    Monstro(std::string nome, int saude, int forca, int defesa);
 
-    void exibir() const override;
+    // Métodos para obter informações do monstro
+    int getForca() const;
+
+    // Métodos para atualizar informações do monstro
+    void receberDano(int dano);
+
+    // Sobrecarga do operador <<
+    friend std::ostream& operator<<(std::ostream& os, const Monstro& monstro);
 };
 
-Monstro* obterMonstro(const std::string& nome);
+// Função para obter um ponteiro para um monstro específico
+Monstro* obterMonstro(std::string nome);
 
 #endif

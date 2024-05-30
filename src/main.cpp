@@ -6,6 +6,8 @@
 #include "Ataques.hpp"
 #include "Economia.hpp"
 #include "Sorte.hpp"
+#include "monstro.hpp"
+#include "combate.hpp"
 
 #include <random>
 
@@ -112,6 +114,14 @@ int main() {
         inventario.mostrarItens();
         system("pause");
         system("cls");
+    }
+
+    // Exemplo de combate
+    Monstro* inimigo = obterMonstro("Ogro");
+    if (inimigo) {
+        combate(personagem, *inimigo);
+    } else {
+        std::cout << "Monstro não encontrado!" << std::endl;
     }
 
     int x;
