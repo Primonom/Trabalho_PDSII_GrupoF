@@ -1,20 +1,19 @@
-#include "personagem.hpp"
+#include "Personagem.hpp"
+#include <iostream>
+#include <algorithm>
 
-Personagem::Personagem(std::string nome, std::string classe, int saude, int defesa)
-    : nome(nome), classe(classe), saude(saude), defesa(defesa), magia(0), ataque(0), agilidade(0) {}
+Personagem::Personagem(const std::string& nome, const std::string& classe, int saude, int defesa, int ataque, int agilidade, int magia)
+    : Entidade(nome, saude, defesa, ataque, agilidade), classe(classe), magia(magia), xp(0), level(1), xpToLevelUp(100) {}
 
-Personagem::~Personagem() {
-    // Código de limpeza, se necessário
-}
+Personagem::~Personagem() {}
 
 void Personagem::exibir() const {
-    std::cout << "Nome: " << nome << std::endl;
+    std::cout << "Personagem: " << std::endl;
+    Entidade::exibir();
     std::cout << "Classe: " << classe << std::endl;
-    std::cout << "Saúde: " << saude << std::endl;
-    std::cout << "Defesa: " << defesa << std::endl;
     std::cout << "Magia: " << magia << std::endl;
-    std::cout << "Ataque: " << ataque << std::endl;
-    std::cout << "Agilidade: " << agilidade << std::endl;
+    std::cout << "XP: " << xp << std::endl;
+    std::cout << "Level: " << level << std::endl;
 }
 
 void Personagem::distribuirPontos(int pontos) {
@@ -22,45 +21,43 @@ void Personagem::distribuirPontos(int pontos) {
         std::cout << "Distribuindo " << pontos << " pontos para os atributos." << std::endl;
         std::cout << "Digite quantos pontos deseja atribuir a cada atributo:" << std::endl;
 
-        int valor;
+        int pontosDistribuir;
         
         std::cout << "Saude: ";
-        std::cin >> valor;
-        valor = std::min(valor, pontos);
-        saude += valor;
-        pontos -= valor;
+        std::cin >> pontosDistribuir;
+        saude += std::min(pontosDistribuir, pontos);
+        pontos -= pontosDistribuir;
 
         std::cout << "Defesa: ";
-        std::cin >> valor;
-        valor = std::min(valor, pontos);
-        defesa += valor;
-        pontos -= valor;
+        std::cin >> pontosDistribuir;
+        defesa += std::min(pontosDistribuir, pontos);
+        pontos -= pontosDistribuir;
 
         std::cout << "Magia: ";
-        std::cin >> valor;
-        valor = std::min(valor, pontos);
-        magia += valor;
-        pontos -= valor;
+        std::cin >> pontosDistribuir;
+        magia += std::min(pontosDistribuir, pontos);
+        pontos -= pontosDistribuir;
 
         std::cout << "Ataque: ";
-        std::cin >> valor;
-        valor = std::min(valor, pontos);
-        ataque += valor;
-        pontos -= valor;
+        std::cin >> pontosDistribuir;
+        ataque += std::min(pontosDistribuir, pontos);
+        pontos -= pontosDistribuir;
 
         std::cout << "Agilidade: ";
-        std::cin >> valor;
-        valor = std::min(valor, pontos);
-        agilidade += valor;
-        pontos -= valor;
+        std::cin >> pontosDistribuir;
+        agilidade += std::min(pontosDistribuir, pontos);
+        pontos -= pontosDistribuir;
 
         std::cout << "Pontos restantes: " << pontos << std::endl;
     }
 }
 
+Personagem criarPersonagem(const std::string& nome, const std::string& classe) {
+    return Personagem(nome, classe, 100, 10, 20, 5, 30); // Valores iniciais de exemplo
+}
+
 void Personagem::addXP(int amount) {
     xp += amount;
-
     while (xp >= xpToLevelUp) {
         xp -= xpToLevelUp;
         level++;
@@ -77,13 +74,8 @@ int Personagem::getXP() const {
 }
 
 std::ostream& operator<<(std::ostream& os, const Personagem& personagem) {
-    os << "Nome: " << personagem.nome << "\nClasse: " << personagem.classe << "\nSaúde: " << personagem.saude
-       << "\nDefesa: " << personagem.defesa << "\nMagia: " << personagem.magia << "\nAtaque: " << personagem.ataque
-       << "\nAgilidade: " << personagem.agilidade << "\nXP: " << personagem.xp << "\nNível: " << personagem.level;
+    os << "Personagem: \n" << "Nome: " << personagem.nome << "\nClasse: " << personagem.classe << "\nSaude: " << personagem.saude
+       << "\nDefesa: " << personagem.defesa << "\nAtaque: " << personagem.ataque << "\nAgilidade: " << personagem.agilidade
+       << "\nMagia: " << personagem.magia << "\nXP: " << personagem.xp << "\nLevel: " << personagem.level;
     return os;
-}
-
-Personagem criarPersonagem(std::string nome, std::string classe) {
-    Personagem novoPersonagem(nome, classe, 100, 50); // Valores iniciais de saúde e defesa
-    return novoPersonagem;
 }

@@ -1,42 +1,25 @@
-#include "monstro.hpp"
+#include "Monstro.hpp"
 
 // Declaração das variáveis estáticas
 static Monstro monstro1("Ogro", 100, 20, 10);
 static Monstro monstro2("Esqueleto", 80, 15, 5);
 
-// Função para obter um ponteiro para um monstro específico
-Monstro* obterMonstro(std::string nome) {
+Monstro* obterMonstro(const std::string& nome) {
     if (nome == "Ogro") {
         return &monstro1;
     } else if (nome == "Esqueleto") {
         return &monstro2;
     } else {
-        return nullptr; // Retorna nullptr se o monstro não for encontrado
+        return nullptr;
     }
 }
 
-// Construtor
-Monstro::Monstro(std::string nome, int saude, int forca, int defesa)
-    : Personagem(nome, "Monstro", saude, defesa), forca(forca) {}
+Monstro::Monstro(const std::string& nome, int saude, int forca, int defesa)
+    : Entidade(nome, saude, defesa, forca, 0) {}
 
-// Métodos para obter informações do monstro
-int Monstro::getForca() const {
-    return forca;
-}
+Monstro::~Monstro() {}
 
-// Método para atualizar a saúde do monstro quando recebe dano
-void Monstro::receberDano(int dano) {
-    // Reduz a saúde do monstro de acordo com o dano recebido
-    saude -= dano;
-
-    // Garante que a saúde não seja negativa
-    if (saude < 0) {
-        saude = 0;
-    }
-}
-
-std::ostream& operator<<(std::ostream& os, const Monstro& monstro) {
-    os << static_cast<const Personagem&>(monstro)
-       << "\nForça: " << monstro.forca;
-    return os;
+void Monstro::exibir() const {
+    std::cout << "Monstro: " << std::endl;
+    Entidade::exibir();
 }
