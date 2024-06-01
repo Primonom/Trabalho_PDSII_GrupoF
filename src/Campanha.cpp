@@ -1,5 +1,13 @@
 #include "Campanha.hpp"
 
+Campanha::Campanha() {
+    nome = "";
+}
+
+Campanha::~Campanha() {
+    std::cout << "O objeto Campanha foi destruído." << std::endl;
+}
+
 void Campanha::exibirOpcoes() {
     std::cout << "Escolha uma campanha:" << std::endl;
     std::cout << "1. Caverna do Dragao" << std::endl;
@@ -9,7 +17,7 @@ void Campanha::exibirOpcoes() {
     std::cout << "5. Perdidos no Espaco" << std::endl;
 }
 
-std::string Campanha::escolherCampanha() {
+void Campanha::escolherCampanha() {
     int escolha;
     std::string input;
 
@@ -26,20 +34,35 @@ std::string Campanha::escolherCampanha() {
 
         switch (escolha) {
             case 1:
-                return "Caverna do Dragao";
+                nome = "Caverna do Dragao";
+                break;
             case 2:
-                return "Monte Ararath";
+                nome = "Monte Ararath";
+                break;
             case 3:
-                return "Eclipse";
+                nome = "Eclipse";
+                break;
             case 4:
-                return "Em busca de Atlantida";
+                nome = "Em busca de Atlantida";
+                break;
             case 5:
-                return "Perdidos no Espaco";
+                nome = "Perdidos no Espaco";
+                break;
             default:
                 std::cerr << "Opcao invalida!" << std::endl;
         }
     } while (escolha < 1 || escolha > 5);
-
-    return "";
 }
 
+std::string Campanha::getNome() const {
+    return nome;
+}
+
+void Campanha::setNome(const std::string& nome) {
+    this->nome = nome;
+}
+
+std::ostream& operator<<(std::ostream& os, const Campanha& campanha) {
+    os << "Campanha: " << campanha.getNome();
+    return os;
+}
