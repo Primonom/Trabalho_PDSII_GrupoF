@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include "economia.hpp"
+#include "Economia.hpp"
 
 struct Item {
     std::string nome;
@@ -11,17 +11,20 @@ struct Item {
     int custo; // Custo do item em ouro
 };
 
-class Inventario {
+class Inventario : public Economia {
 private:
     static const int ESPACOS = 4; // Número de espaços no inventário
     std::vector<Item> itens;
-    Economia* economia; // Referência para o objeto de economia
 
 public:
-    Inventario(Economia& eco); // Construtor que recebe uma referência para o objeto de economia
+    Inventario(); // Construtor
+    ~Inventario(); // Destrutor
     void adicionarItem(const std::string& nome, int quantidade, int custo);
     void mostrarItens() const;
     void comprarItem(const std::string& nome, int quantidade, int custo);
+
+    // Sobrecarga do operador <<
+    friend std::ostream& operator<<(std::ostream& os, const Inventario& inventario);
 };
 
 #endif // INVENTARIO_HPP

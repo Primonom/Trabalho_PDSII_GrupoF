@@ -1,8 +1,12 @@
-#include "inventario.hpp"
+#include "Inventario.hpp"
 #include <iostream>
 
-Inventario::Inventario(Economia& eco) : economia(&eco) {
+Inventario::Inventario() {
     itens.reserve(ESPACOS); // Reserva espaço para os itens no vetor
+}
+
+Inventario::~Inventario() {
+    std::cout << "O objeto Inventario foi destruído." << std::endl;
 }
 
 void Inventario::adicionarItem(const std::string& nome, int quantidade, int custo) {
@@ -36,13 +40,22 @@ void Inventario::comprarItem(const std::string& nome, int quantidade, int custo)
     }
 
     // Verifica se o jogador tem ouro suficiente para comprar o item
-    if (economia->getOuro() < custo) {
+    if (getOuro() < custo) {
         std::cout << "Voce nao tem ouro suficiente para comprar este item." << std::endl;
         return;
     }
 
     // Adiciona o item ao inventário e deduz o ouro do jogador
     itens.push_back({nome, quantidade, custo});
-    economia->gastarOuro(custo);
+    gastarOuro(custo);
     std::cout << "Item '" << nome << "' comprado com sucesso!" << std::endl;
+}
+
+// Implementação da sobrecarga do operador <<
+std::ostream& operator<<(std::ostream& os, const Inventario& inventario) {
+    os << "Inventario: " << std::endl;
+    for (const auto& item : inventario.itens) {
+        os << item.nome << " (Quantidade: " << item.quantidade << ", Custo: " << item.custo << " de ouro)" << std::endl;
+    }
+    return os;
 }
