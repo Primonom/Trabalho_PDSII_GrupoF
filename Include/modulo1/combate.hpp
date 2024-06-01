@@ -3,7 +3,8 @@
 
 #include "Personagem.hpp"
 #include "Monstro.hpp"
+#include "Ataques.hpp"
 
-void combate(Personagem& jogador, Monstro& inimigo);
+void combate(Personagem& jogador, Monstro& inimigo, Ataques& ataquesJogador);
 
 #endif

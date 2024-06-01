@@ -11,3 +11,11 @@ void Ataques::mostrarOpcoes() const {
         std::cout << "- " << ataque << std::endl;
     }
 }
+
+std::string Ataques::escolherAtaque() const {
+    std::cout << "Escolha o ataque:" << std::endl;
+    mostrarOpcoes();
+    std::string escolha;
+    std::cin >> escolha;
+    return escolha;
+}

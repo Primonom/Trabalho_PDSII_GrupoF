@@ -11,6 +11,7 @@ private:
 public:
     void adicionarAtaque(const std::string& ataque);
     void mostrarOpcoes() const;
+    std::string escolherAtaque() const;
 };
 
 #endif

@@ -73,9 +73,16 @@ int Personagem::getXP() const {
     return xp;
 }
 
-std::ostream& operator<<(std::ostream& os, const Personagem& personagem) {
-    os << "Personagem: \n" << "Nome: " << personagem.nome << "\nClasse: " << personagem.classe << "\nSaude: " << personagem.saude
-       << "\nDefesa: " << personagem.defesa << "\nAtaque: " << personagem.ataque << "\nAgilidade: " << personagem.agilidade
-       << "\nMagia: " << personagem.magia << "\nXP: " << personagem.xp << "\nLevel: " << personagem.level;
-    return os;
+// Implementação dos métodos para manipular os ataques
+void Personagem::adicionarAtaque(const std::string& ataque) {
+    ataques.adicionarAtaque(ataque);
+}
+
+void Personagem::mostrarOpcoesAtaque() const {
+    ataques.mostrarOpcoes();
+}
+
+void Personagem::usarAtaque(Personagem& alvo, const std::string& ataque) {
+    std::cout << nome << " usou " << ataque << " em " << alvo.nome << std::endl;
+    // Lógica para realizar o ataque...
 }
