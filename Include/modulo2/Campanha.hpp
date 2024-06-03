@@ -12,7 +12,7 @@ public:
     Campanha(); // Construtor
     ~Campanha(); // Destrutor
     void exibirOpcoes();
-    void escolherCampanha();
+    std::string escolherCampanha();
 
     // Getters e Setters
     std::string getNome() const;

@@ -17,7 +17,7 @@ void Campanha::exibirOpcoes() {
     std::cout << "5. Perdidos no Espaco" << std::endl;
 }
 
-void Campanha::escolherCampanha() {
+std::string Campanha::escolherCampanha() {
     int escolha;
     std::string input;
 
