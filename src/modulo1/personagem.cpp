@@ -16,7 +16,17 @@ void Personagem::exibir() const {
     std::cout << "Level: " << level << std::endl;
 }
 
-void Personagem::distribuirPontos(int pontos) {
+void Personagem::distribuirPontos() {
+    int resultado = rolarDado();
+    int pontos;
+    if (resultado == 6) {
+        pontos = 10;
+    } else if (resultado == 1) {
+        pontos = 5;
+    } else {
+        pontos = resultado;
+    }
+
     while (pontos > 0) {
         std::cout << "Distribuindo " << pontos << " pontos para os atributos." << std::endl;
         std::cout << "Digite quantos pontos deseja atribuir a cada atributo:" << std::endl;
@@ -63,6 +73,10 @@ void Personagem::addXP(int amount) {
         level++;
         xpToLevelUp *= 2;
     }
+}
+
+int Personagem::rolarDado() const {
+    return rand() % 6 + 1;
 }
 
 int Personagem::getLevel() const {

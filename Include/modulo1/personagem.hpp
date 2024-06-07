@@ -4,6 +4,8 @@
 #include "Entidade.hpp"
 #include "Ataques.hpp" // Adicionamos o header de ataques
 #include <string>
+#include <cstdlib> // para std::rand e std::srand
+#include <ctime> // para std::time
 
 class Personagem : public Entidade {
 private:
@@ -19,10 +21,11 @@ public:
     virtual ~Personagem();
 
     void exibir() const override;
-    void distribuirPontos(int pontos);
+    void distribuirPontos();
     void addXP(int amount);
     int getLevel() const;
     int getXP() const;
+    int rolarDado() const;
     
     // Métodos para manipular os ataques
     void adicionarAtaque(const std::string& ataque);

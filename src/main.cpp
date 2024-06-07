@@ -1,5 +1,7 @@
 #include <iostream>
 #include <random>
+#include <cstdlib> // para std::rand e std::srand
+#include <ctime> // para std::time
 #include "Campanha.hpp"
 #include "EscolhaClasse.hpp"
 #include "Personagem.hpp"
@@ -9,6 +11,7 @@
 #include "Sorte.hpp"
 #include "Combate.hpp"
 
+/*
 void atribuirAtributos(Personagem& personagem) {
     int pontos;
     std::random_device rd;
@@ -31,39 +34,96 @@ void atribuirAtributos(Personagem& personagem) {
     }
     personagem.distribuirPontos(pontos);
 }
+*/
+
+std::string escolherNome() {
+    std::string nome;
+    std::cout << "Digite o nome do seu personagem: ";
+    std::cin.ignore(); // Ignora o '\n' deixado no buffer pelo std::cin anterior
+    std::getline(std::cin, nome);
+    return nome;
+}
 
 int main() {
-    // Solicitar ao usuário que escolha a campanha e a classe do personagem
+    std::srand(std::time(0)); // inicializa o gerador de números aleatórios
+
+    // Criação de uma nova campanha
     Campanha campanha;
-    std::string nomeCampanha = campanha.escolherCampanha();
-    std::string classePersonagem = escolherClasse();
 
-    if (!nomeCampanha.empty()) {
-        std::cout << "Campanha selecionada: " << nomeCampanha << std::endl;
+    // Escolha da campanha
+    campanha.escolherCampanha();
+    std::string nomeCampanha = campanha.getNome();
 
-        // Solicitar ao usuário que entre com o nome do personagem
-        std::string nomePersonagem;
-        std::cout << "Digite o nome do seu personagem: ";
-        std::cin >> nomePersonagem;
+    // Escolha da classe do personagem
+    std::string classe = escolherClasse();
 
-        // Criar um novo personagem com o nome e classe escolhidos e exibir informações
-        Personagem personagem = criarPersonagem(nomePersonagem, classePersonagem);
-        std::cout << "\nPersonagem criado com sucesso!\n";
-        atribuirAtributos(personagem); // Atribuir pontos aos atributos do personagem
-        personagem.exibir();
+    // Escolha do nome do personagem
+    std::string nomePersonagem = escolherNome();
 
-        // Criando ataques para o jogador
-        Ataques ataquesJogador;
-        ataquesJogador.adicionarAtaque("Ataque Rápido");
-        ataquesJogador.adicionarAtaque("Corte Profundo");
-        ataquesJogador.adicionarAtaque("Magia Elemental");
+    // Imprime as escolhas do usuário
+    std::cout << "Você escolheu a campanha: " << nomeCampanha << std::endl;
+    std::cout << "Você escolheu a classe: " << classe << std::endl;
+    std::cout << "Você escolheu o nome: " << nomePersonagem << std::endl;
 
-        // Criar um monstro para combate
-        Monstro monstro("Ogro", 100, 20, 10);
+    // Criar um objeto da classe Inventario
+    Inventario inventario;
 
-        // Iniciar combate
-        combate(personagem, monstro, ataquesJogador);
+    // Exemplo de uso da economia
+    inventario.ganharOuro(100); // O jogador começa com 100 de ouro
+    std::cout << "O jogador tem " << inventario.getOuro() << " de ouro." << std::endl;
+
+    bool continuarComprando = true; // Variável para controlar se o jogador deseja continuar comprando
+
+    while (continuarComprando) {
+        std::cout << "\nBem-vindo(a) à loja!" << std::endl;
+        std::cout << "Escolha os itens que deseja comprar:" << std::endl;
+        std::cout << "1. Espada (10 de ouro)" << std::endl;
+        std::cout << "2. Poção de vida (5 de ouro)" << std::endl;
+        std::cout << "3. Armadura (15 de ouro)" << std::endl;
+        std::cout << "4. Poção de mana (8 de ouro)" << std::endl;
+        std::cout << "0. Sair da loja" << std::endl; // Opção para sair da loja
+
+        int escolha;
+        std::cin >> escolha;
+
+        switch (escolha) {
+            case 1:
+                inventario.comprarItem("Espada", 1, 10);
+                break;
+            case 2:
+                inventario.comprarItem("Poção de vida", 1, 5);
+                break;
+            case 3:
+                inventario.comprarItem("Armadura", 1, 15);
+                break;
+            case 4:
+                inventario.comprarItem("Poção de mana", 1, 8);
+                break;
+            case 0:
+                // Opção para sair da loja
+                continuarComprando = false;
+                break;
+            default:
+                std::cout << "Opção inválida!" << std::endl;
+                break;
+        }
+
+        // Verifica se o jogador escolheu sair da loja
+        if (!continuarComprando) {
+            std::cout << "Saindo da loja..." << std::endl;
+            break; // Sai do loop
+        }
+
+        std::cout << "O jogador tem " << inventario.getOuro() << " de ouro." << std::endl;
+        std::cout << "\nItens comprados:" << std::endl;
+        inventario.mostrarItens();
+        system("pause");
+        system("cls");
     }
+    
+    Personagem personagem(nomePersonagem, classe, 100, 10, 20, 5, 30);
+    personagem.distribuirPontos(); // Rola o dado e distribui os pontos de atributo
+
 
     return 0;
 }
