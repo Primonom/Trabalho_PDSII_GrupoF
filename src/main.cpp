@@ -124,6 +124,8 @@ int main() {
     Personagem personagem(nomePersonagem, classe, 100, 10, 20, 5, 30);
     personagem.distribuirPontos(); // Rola o dado e distribui os pontos de atributo
 
-
+   std::cout << "\nEscolha um ataque para usar:" << std::endl;
+    personagem.mostrarOpcoesAtaque();  // Mostra as opções de ataque
+    std::string ataqueEscolhido = personagem.escolherAtaque();
     return 0;
 }

@@ -26,7 +26,7 @@ public:
     int getLevel() const;
     int getXP() const;
     int rolarDado() const;
-    
+    std::string escolherAtaque() const; 
     // Métodos para manipular os ataques
     void adicionarAtaque(const std::string& ataque);
     void mostrarOpcoesAtaque() const;

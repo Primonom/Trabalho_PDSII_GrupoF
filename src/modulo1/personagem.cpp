@@ -3,7 +3,21 @@
 #include <algorithm>
 
 Personagem::Personagem(const std::string& nome, const std::string& classe, int saude, int defesa, int ataque, int agilidade, int magia)
-    : Entidade(nome, saude, defesa, ataque, agilidade), classe(classe), magia(magia), xp(0), level(1), xpToLevelUp(100) {}
+    : Entidade(nome, saude, defesa, ataque, agilidade), classe(classe), magia(magia), xp(0), level(1), xpToLevelUp(100) {
+        if (classe == "Mago") {
+        ataques.adicionarAtaque("Bola de fogo");
+        ataques.adicionarAtaque("Raio");
+        } else if (classe == "Guerreiro") {
+            ataques.adicionarAtaque("Corte horizontal");
+            ataques.adicionarAtaque("Investida");
+        } else if (classe == "Assassino") {
+            ataques.adicionarAtaque("Ataque sorrateiro");
+            ataques.adicionarAtaque("Arremesso de adaga");
+        } else if (classe == "Monge") {
+            ataques.adicionarAtaque("Chute giratório");
+            ataques.adicionarAtaque("Soco rápido");
+        }
+    }
 
 Personagem::~Personagem() {}
 
@@ -99,4 +113,8 @@ void Personagem::mostrarOpcoesAtaque() const {
 void Personagem::usarAtaque(Personagem& alvo, const std::string& ataque) {
     std::cout << nome << " usou " << ataque << " em " << alvo.nome << std::endl;
     // Lógica para realizar o ataque...
+}
+
+std::string Personagem::escolherAtaque() const {
+    return ataques.escolherAtaque();
 }
