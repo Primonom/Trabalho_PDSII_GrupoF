@@ -127,5 +127,19 @@ int main() {
    std::cout << "\nEscolha um ataque para usar:" << std::endl;
     personagem.mostrarOpcoesAtaque();  // Mostra as opções de ataque
     std::string ataqueEscolhido = personagem.escolherAtaque();
+
+
+      // Obtenção do monstro Esqueleto
+    Monstro* Esqueleto = obterMonstro("Esqueleto");
+    if (Esqueleto == nullptr) {
+        std::cerr << "Erro: Monstro 'Esqueleto' não encontrado." << std::endl;
+        return 1; // Retorna um código de erro
+    }
+
+    // Criação dos ataques do jogador
+    Ataques ataquesJogador;
+
+    // Combate entre o personagem e o Esqueleto
+    combate(personagem, *Esqueleto, ataquesJogador);
     return 0;
 }
