@@ -6,7 +6,7 @@ Inventario::Inventario() {
 }
 
 Inventario::~Inventario() {
-    std::cout << "O objeto Inventario foi destruído." << std::endl;
+    std::cout << "O objeto Inventario foi destruido." << std::endl;
 }
 
 void Inventario::adicionarItem(const std::string& nome, int quantidade, int custo) {

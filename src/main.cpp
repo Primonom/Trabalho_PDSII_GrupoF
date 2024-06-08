@@ -11,35 +11,6 @@
 #include "Sorte.hpp"
 #include "Combate.hpp"
 
-/*
-void iniciarCombate(Personagem& personagem, Monstro& monstro) {
-while (true) {
-    // Personagem ataca o monstro
-    std::cout << "\nEscolha um ataque para usar:" << std::endl;
-    personagem.mostrarOpcoesAtaque();  // Mostra as opções de ataque
-    std::string ataqueEscolhido = personagem.escolherAtaque();
-    personagem.usarAtaque(ataqueEscolhido);
-    int danoPersonagem = personagem.usarAtaque(ataqueEscolhido);  // Supondo que calcularDano() é uma função que retorna o dano
-    monstro.receberDano(danoPersonagem);
-
-    // Verifica se o monstro ainda está vivo
-    if (monstro.getSaude() <= 0) {
-        std::cout << "O monstro foi derrotado!" << std::endl;
-        break;
-    }
-
-    // Monstro ataca o personagem
-    int danoMonstro = monstro.getAtaque();
-    personagem.receberDano(danoMonstro);
-
-    // Verifica se o personagem ainda está vivo
-    if (personagem.getSaude() <= 0) {
-        std::cout << "O personagem foi derrotado!" << std::endl;
-        break;
-    }
-}
-}
-*/
 
 std::string escolherNome() {
     std::string nome;
@@ -50,6 +21,8 @@ std::string escolherNome() {
 }
 
 int main() {
+    system("pause");
+    system("cls");
     std::srand(std::time(0)); // inicializa o gerador de números aleatórios
 
     // Criação de uma nova campanha
@@ -66,9 +39,11 @@ int main() {
     std::string nomePersonagem = escolherNome();
 
     // Imprime as escolhas do usuário
-    std::cout << "Você escolheu a campanha: " << nomeCampanha << std::endl;
-    std::cout << "Você escolheu a classe: " << classe << std::endl;
-    std::cout << "Você escolheu o nome: " << nomePersonagem << std::endl;
+    system("pause");
+    system("cls");
+    std::cout << "Voce escolheu a campanha: " << nomeCampanha << std::endl;
+    std::cout << "Voce escolheu a classe: " << classe << std::endl;
+    std::cout << "Voce escolheu o nome: " << nomePersonagem << std::endl;
 
     // Criar um objeto da classe Inventario
     Inventario inventario;
@@ -80,12 +55,12 @@ int main() {
     bool continuarComprando = true; // Variável para controlar se o jogador deseja continuar comprando
 
     while (continuarComprando) {
-        std::cout << "\nBem-vindo(a) à loja!" << std::endl;
+        std::cout << "\nBem-vindo(a) a loja!" << std::endl;
         std::cout << "Escolha os itens que deseja comprar:" << std::endl;
         std::cout << "1. Espada (10 de ouro)" << std::endl;
-        std::cout << "2. Poção de vida (5 de ouro)" << std::endl;
+        std::cout << "2. Pocao de vida (5 de ouro)" << std::endl;
         std::cout << "3. Armadura (15 de ouro)" << std::endl;
-        std::cout << "4. Poção de mana (8 de ouro)" << std::endl;
+        std::cout << "4. Pocao de mana (8 de ouro)" << std::endl;
         std::cout << "0. Sair da loja" << std::endl; // Opção para sair da loja
 
         int escolha;
@@ -96,20 +71,20 @@ int main() {
                 inventario.comprarItem("Espada", 1, 10);
                 break;
             case 2:
-                inventario.comprarItem("Poção de vida", 1, 5);
+                inventario.comprarItem("Pocao de vida", 1, 5);
                 break;
             case 3:
                 inventario.comprarItem("Armadura", 1, 15);
                 break;
             case 4:
-                inventario.comprarItem("Poção de mana", 1, 8);
+                inventario.comprarItem("Pocao de mana", 1, 8);
                 break;
             case 0:
                 // Opção para sair da loja
                 continuarComprando = false;
                 break;
             default:
-                std::cout << "Opção inválida!" << std::endl;
+                std::cout << "Opcao invalida!" << std::endl;
                 break;
         }
 

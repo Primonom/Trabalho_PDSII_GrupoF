@@ -5,7 +5,7 @@ Campanha::Campanha() {
 }
 
 Campanha::~Campanha() {
-    std::cout << "O objeto Campanha foi destruído." << std::endl;
+    std::cout << "O objeto Campanha foi destruido." << std::endl;
 }
 
 void Campanha::exibirOpcoes() {

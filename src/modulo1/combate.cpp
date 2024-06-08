@@ -12,7 +12,9 @@ void iniciarCombate(Personagem& personagem, Monstro& monstro) {
         int danoPersonagem = personagem.usarAtaque(ataqueEscolhido);  // Supondo que usarAtaque() é uma função que retorna o dano
         monstro.receberDano(danoPersonagem);
         std::cout << personagem.getNome() << " ataca " << monstro.getNome() << " com " << ataqueEscolhido << " causando " << danoPersonagem << " de dano." << std::endl;
-
+        system("pause");
+        system("cls");
+        
         // Verifica se o monstro ainda está vivo
         if (monstro.getSaude() <= 0) {
             std::cout << monstro.getNome() << " foi derrotado!" << std::endl;

@@ -17,7 +17,7 @@ std::string escolherClasse() {
         if (std::cin.fail()) {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Entrada inválida! Digite um número válido." << std::endl;
+            std::cout << "Entrada invalida! Digite um numero valido." << std::endl;
         }
             switch (escolha) {
                 case 1:
@@ -57,7 +57,7 @@ std::string escolherClasse() {
                     escolhaValida = true;
                     break;
                 default:
-                    std::cout << "Opção inválida!" << std::endl;
+                    std::cout << "Opcao invalida!" << std::endl;
                     break;
             }
         }

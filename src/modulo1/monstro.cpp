@@ -2,7 +2,7 @@
 #include <iostream>
 
 static Monstro monstro1("Ogro", 100, 10, 20); // Ordem dos parâmetros corrigida
-static Monstro monstro2("Esqueleto", 80, 5, 15); // Ordem dos parâmetros corrigida
+static Monstro monstro2("Esqueleto", 20, 5, 15); // Ordem dos parâmetros corrigida
 
 Monstro::Monstro(const std::string& nome, int saude, int forca, int defesa)
     : Entidade(nome, saude, defesa, forca, 0) {}

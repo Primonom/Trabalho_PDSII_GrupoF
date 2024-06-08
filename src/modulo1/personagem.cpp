@@ -14,8 +14,8 @@ Personagem::Personagem(const std::string& nome, const std::string& classe, int s
             ataques.adicionarAtaque("Ataque sorrateiro", 30);
             ataques.adicionarAtaque("Arremesso de adaga", 35);
         } else if (classe == "Monge") {
-            ataques.adicionarAtaque("Chute giratório", 40);
-            ataques.adicionarAtaque("Soco rápido", 45);
+            ataques.adicionarAtaque("Chute giratorio", 40);
+            ataques.adicionarAtaque("Soco rapido", 45);
         }
     }
 

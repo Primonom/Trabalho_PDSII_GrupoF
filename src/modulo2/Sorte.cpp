@@ -8,7 +8,7 @@ Sorte::Sorte() : resultado(0), porcentagem(0.0) {
 }
 
 Sorte::~Sorte() {
-    std::cout << "O objeto Sorte foi destruído." << std::endl;
+    std::cout << "O objeto Sorte foi destruido." << std::endl;
 }
 
 void Sorte::lancarDado() {
