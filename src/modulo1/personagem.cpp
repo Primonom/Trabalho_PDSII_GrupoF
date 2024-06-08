@@ -5,17 +5,17 @@
 Personagem::Personagem(const std::string& nome, const std::string& classe, int saude, int defesa, int ataque, int agilidade, int magia)
     : Entidade(nome, saude, defesa, ataque, agilidade), classe(classe), magia(magia), xp(0), level(1), xpToLevelUp(100) {
         if (classe == "Mago") {
-        ataques.adicionarAtaque("Bola de fogo");
-        ataques.adicionarAtaque("Raio");
+        ataques.adicionarAtaque("Bola de fogo", 10);
+        ataques.adicionarAtaque("Raio", 15);
         } else if (classe == "Guerreiro") {
-            ataques.adicionarAtaque("Corte horizontal");
-            ataques.adicionarAtaque("Investida");
+            ataques.adicionarAtaque("Corte horizontal", 20);
+            ataques.adicionarAtaque("Investida", 25);
         } else if (classe == "Assassino") {
-            ataques.adicionarAtaque("Ataque sorrateiro");
-            ataques.adicionarAtaque("Arremesso de adaga");
+            ataques.adicionarAtaque("Ataque sorrateiro", 30);
+            ataques.adicionarAtaque("Arremesso de adaga", 35);
         } else if (classe == "Monge") {
-            ataques.adicionarAtaque("Chute giratório");
-            ataques.adicionarAtaque("Soco rápido");
+            ataques.adicionarAtaque("Chute giratório", 40);
+            ataques.adicionarAtaque("Soco rápido", 45);
         }
     }
 
@@ -102,17 +102,18 @@ int Personagem::getXP() const {
 }
 
 // Implementação dos métodos para manipular os ataques
-void Personagem::adicionarAtaque(const std::string& ataque) {
-    ataques.adicionarAtaque(ataque);
+void Personagem::adicionarAtaque(const std::string& ataque, int dano) {
+    ataques.adicionarAtaque(ataque, dano);
 }
 
 void Personagem::mostrarOpcoesAtaque() const {
     ataques.mostrarOpcoes();
 }
 
-void Personagem::usarAtaque(Personagem& alvo, const std::string& ataque) {
-    std::cout << nome << " usou " << ataque << " em " << alvo.nome << std::endl;
-    // Lógica para realizar o ataque...
+int Personagem::usarAtaque(const std::string& ataqueEscolhido) {
+    // Calcule o dano com base no ataque escolhido
+    int dano = rand() % 10 + 1;
+    return dano;
 }
 
 std::string Personagem::escolherAtaque() const {

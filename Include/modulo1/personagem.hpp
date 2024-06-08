@@ -15,7 +15,6 @@ private:
     int level;
     int xpToLevelUp;
     Ataques ataques; // Adicionamos um objeto de Ataques
-
 public:
     Personagem(const std::string& nome, const std::string& classe, int saude, int defesa, int ataque, int agilidade, int magia);
     virtual ~Personagem();
@@ -28,9 +27,9 @@ public:
     int rolarDado() const;
     std::string escolherAtaque() const; 
     // Métodos para manipular os ataques
-    void adicionarAtaque(const std::string& ataque);
+    void adicionarAtaque(const std::string& ataque, int dano);
     void mostrarOpcoesAtaque() const;
-    void usarAtaque(Personagem& alvo, const std::string& ataque);
+    int usarAtaque(const std::string& ataqueEscolhido);
 };
 
 Personagem criarPersonagem(const std::string& nome, const std::string& classe);

@@ -21,7 +21,9 @@ public:
     int getDefesa() const;
     int getAtaque() const;
     int getAgilidade() const;
+    int getDano() const { return ataque; }
 
+    void setDano(int dano) { ataque = dano; }
     void receberDano(int dano);
     virtual void exibir() const;
 

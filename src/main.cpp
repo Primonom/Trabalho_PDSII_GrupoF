@@ -35,6 +35,66 @@ void atribuirAtributos(Personagem& personagem) {
     personagem.distribuirPontos(pontos);
 }
 */
+/*void iniciarCombate(Personagem& personagem, Monstro& monstro) {
+    bool combateTerminou = false;
+    while (!combateTerminou) {
+        std::cout << "\nEscolha um ataque para usar:" << std::endl;
+        personagem.mostrarOpcoesAtaque();  // Mostra as opções de ataque
+        std::string ataqueEscolhido = personagem.escolherAtaque();
+        personagem.usarAtaque(ataqueEscolhido);
+        monstro.getAtaque();
+         // Criação dos ataques do jogador
+    Ataques ataquesJogador;
+    // Adicionar ataques ao personagem
+    personagem.adicionarAtaque("Bola de Fogo", 5);
+    personagem.adicionarAtaque("Raio", 2);
+
+    // Usar um ataque
+    ataqueEscolhido = personagem.escolherAtaque();
+    personagem.usarAtaque(ataqueEscolhido);
+        if (personagem.getSaude() <= 0) {
+            std::cout << "Você foi derrotado!" << std::endl;
+            combateTerminou = true;
+        } else if (monstro.getSaude() <= 0) {
+            std::cout << "Você derrotou o monstro!" << std::endl;
+            combateTerminou = true;
+        }
+    }*/
+
+    void iniciarCombate(Personagem& personagem, Monstro& monstro) {
+    while (true) {
+        // Personagem ataca o monstro
+        std::cout << "\nEscolha um ataque para usar:" << std::endl;
+        personagem.mostrarOpcoesAtaque();  // Mostra as opções de ataque
+        std::string ataqueEscolhido = personagem.escolherAtaque();
+        personagem.usarAtaque(ataqueEscolhido);
+        int danoPersonagem = personagem.usarAtaque(ataqueEscolhido);  // Supondo que calcularDano() é uma função que retorna o dano
+        monstro.receberDano(danoPersonagem);
+
+        // Verifica se o monstro ainda está vivo
+        if (monstro.getSaude() <= 0) {
+            std::cout << "O monstro foi derrotado!" << std::endl;
+            break;
+        }
+
+        // Monstro ataca o personagem
+        int danoMonstro = monstro.getAtaque();
+        personagem.receberDano(danoMonstro);
+
+        // Verifica se o personagem ainda está vivo
+        if (personagem.getSaude() <= 0) {
+            std::cout << "O personagem foi derrotado!" << std::endl;
+            break;
+        }
+    }
+}
+/*{
+    std::cout << "Você ganhou " << monstro.getXP() << " de experiência." << std::endl;
+    personagem.addXP(monstro.getXP());
+    std::cout << "Você agora tem " << personagem.getXP() << " de experiência." << std::endl;
+}*/
+
+
 
 std::string escolherNome() {
     std::string nome;
@@ -137,9 +197,17 @@ int main() {
     }
 
     // Criação dos ataques do jogador
-    Ataques ataquesJogador;
+    //Ataques ataquesJogador;
+    // Adicionar ataques ao personagem
+   // personagem.adicionarAtaque("Bola de Fogo", 5);
+   // personagem.adicionarAtaque("Raio", 2);
+
+    // Usar um ataque
+    //ataqueEscolhido = personagem.escolherAtaque();
+    //personagem.usarAtaque(ataqueEscolhido);
 
     // Combate entre o personagem e o Esqueleto
-    combate(personagem, *Esqueleto, ataquesJogador);
+    //combate(personagem, *Esqueleto, ataquesJogador);
+    iniciarCombate(personagem, *Esqueleto);
     return 0;
 }

@@ -18,7 +18,7 @@ int Entidade::getDefesa() const {
     return defesa;
 }
 
-int Entidade::getAtaque() const {
+int Entidade::getAtaque() const {  
     return ataque;
 }
 

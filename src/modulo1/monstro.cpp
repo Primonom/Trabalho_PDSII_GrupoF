@@ -15,7 +15,8 @@ void Monstro::exibir() const {
 }
 
 void Monstro::adicionarAtaque(const std::string& ataque) {
-    ataques.adicionarAtaque(ataque);
+    int dano = 10; // Defina o dano do ataque aqui
+    ataques.adicionarAtaque(ataque, dano);
 }
 
 void Monstro::mostrarOpcoesAtaque() const {
