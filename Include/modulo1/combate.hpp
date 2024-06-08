@@ -5,6 +5,7 @@
 #include "Monstro.hpp"
 #include "Ataques.hpp"
 
-void combate(Personagem& jogador, Monstro& inimigo, Ataques& ataquesJogador);
+//void combate(Personagem& jogador, Monstro& inimigo, Ataques& ataquesJogador);
+void iniciarCombate(Personagem& personagem, Monstro& monstro);
 
 #endif
