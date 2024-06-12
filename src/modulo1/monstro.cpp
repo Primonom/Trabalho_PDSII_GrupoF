@@ -25,7 +25,6 @@ void Monstro::mostrarOpcoesAtaque() const {
 
 void Monstro::usarAtaque(Entidade& alvo, const std::string& ataque) {
     std::cout << nome << " usou " << ataque << " em " << alvo.getNome() << std::endl;
-    // Implementação da lógica de ataque aqui...
 }
 
 Monstro* obterMonstro(const std::string& nome) {

@@ -22,4 +22,4 @@ public:
 
 Monstro* obterMonstro(const std::string& nome);
 
-#endif
+#endif 
